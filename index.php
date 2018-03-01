@@ -2,37 +2,17 @@
 
 require 'vendor/autoload.php';
 
-$app = new \atk4\ui\App('Welcome to Party App');
-$app->initLayout('Centered');
+require 'init.php';
 
+$app = new App();
 
-/****************************************************************
- * You can now remove the text below and write your own Web App *
- *                                                              *
- * Thank you for trying out Agile Toolkit                       *
- ****************************************************************/
+$columns = $app->add('Columns');
 
+$left = $columns->addColumn();
+$right = $columns->addColumn();
 
-$app->add('Text')
-    ->addParagraph('You have successfully installed Agile Toolkit '.$app->version)
-    ->addParagraph('Open index.php file in your text editor and follow documentation.');
+$right->add(['Message', 'Welcome to the party!', 'info'])->text
+    ->addParagraph('Our party is using "Bring Your Own Drink™" policy, so be sure '.
+    'to grab a beer or lemonade');
 
-$app->add(['Button', 'icon'=>'dashboard'])
-    ->addClass('primary')
-    ->set('Admin')
-    ->link(['admin']);
-
-$app->add(['Button', 'icon'=>'lightning'])
-    ->set('Quick Intro')
-    ->setAttr('target', '_blank')
-    ->link('http://agiletoolkit.org/intro/');
-
-$app->add(['Button', 'icon'=>'book'])
-    ->set('Documentation')
-    ->setAttr('target', '_blank')
-    ->link('http://agile-ui.readthedocs.io/');
-
-$app->add(['Button', 'icon'=>'trophy'])
-    ->set('Examples')
-    ->setAttr('target', '_blank')
-    ->link('http://ui.agiletoolkit.org/');
+$left->add('Form')->setModel(new Guest($app->db));
