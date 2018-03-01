@@ -2,7 +2,7 @@
 
 require 'vendor/autoload.php';
 
-$app = new \atk4\ui\App('Welcome to Agile Toolkit');
+$app = new \atk4\ui\App('Welcome to Party App');
 $app->initLayout('Centered');
 
 
