@@ -17,7 +17,7 @@ class App extends \atk4\ui\App
             $this->initLayout('Centered');
         }
 
-        $this->dbConnect('mysql://root:root@localhost/party-app');
+        $this->dbConnect(isset($_ENV['CLEARDB_DATABASE_URL']) ? $_ENV['CLEARDB_DATABASE_URL']: 'mysql://root:root@localhost/party-app');
     }
 }
 
