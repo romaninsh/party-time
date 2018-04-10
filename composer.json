@@ -1,5 +1,8 @@
 {
   "require":{
-    "atk4/ui": "^1.2"
+    "atk4/ui": "^1.2",
+    "atk4/schema": "^1.1",
+    "atk4/login": "^1.0",
+    "twilio/sdk": "^5.16"
   }
 }
